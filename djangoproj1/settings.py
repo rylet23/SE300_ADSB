@@ -1,4 +1,6 @@
 import os
+from passwords import passpee
+key1, dbname1, user1, password1, host1 = passpee()
 """
 Django settings for djangoproj1 project.
 
@@ -73,17 +75,16 @@ WSGI_APPLICATION = 'djangoproj1.wsgi.application'
 
 # ALL DATABASES - Others created need to be followed thru with in the PGADMIN app, like actually make the databases so they can execute properly.
 DATABASES = {
-    'default':{},
-    
-    #Sign-In info
-    'SE300':{
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME' : 'ADBSE300',
-        'USER': 'postgres',
-        'PASSWORD': 'Ryle7953',
-        'HOST':'localhost',
+    # Set as default since only 1 DB
+    'default':{
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME' : dbname1,
+        'USER': user1,
+        'PASSWORD': password1,
+        'HOST':host1,
         'PORT':"5432",
     },
+    
 
 }
 
